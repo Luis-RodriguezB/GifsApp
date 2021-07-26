@@ -1,0 +1,25 @@
+<div class="bg-dark border-right p-3" id="sidebar">
+  <h1 class="text-light text-center">Gifs-App</h1>
+  <hr class="text-white" />
+  <div class="list-group list-reset" *ngIf="historial.length !== 0; else busquedaVacia">
+    <a
+      *ngFor="let item of historial"
+      (click)="buscar( item )"
+      href="#"
+      class="list-group-item list-group-item-action d-flex justify-content-between"
+    >
+      {{ item | titlecase }}
+
+      <fa-icon 
+        [icon]="deleteIcon"
+        (click)="eliminar( item )"        
+      >
+      </fa-icon>
+    </a>
+  </div>
+
+  <ng-template #busquedaVacia>
+    <h4 class="text-white text-center mt-5">Lista de busqueda vacia!</h4>
+  </ng-template>
+  
+</div>

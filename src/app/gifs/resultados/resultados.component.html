@@ -1,0 +1,26 @@
+<div class="row">
+  <ng-container *ngIf="resultados.length !== 0; else resultadosVacio">
+    <div
+      *ngFor="let gif of resultados"
+      class="col-md-4 col-sm-6 animate__animated animate__fadeIn"
+    >
+      <div class="card">
+        <img
+          [lazyLoad]="gif.images.downsized_medium.url"
+          [defaultImage]="defaultImage"
+          alt="gif.title"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <p class="card-text">
+            {{ gif.title }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #resultadosVacio>
+      <h2 class="text-center mt-5">No hay imagenes a mostrar...</h2>
+  </ng-template>
+</div>
