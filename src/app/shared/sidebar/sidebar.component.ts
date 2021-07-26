@@ -21,7 +21,6 @@ export class SidebarComponent {
   }
 
   eliminar(item: string) {
-    console.log(item);
     this.gifsService.deleteGifs(item);
   }
 }
