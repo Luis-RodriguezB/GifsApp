@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row scroll-container">
   <ng-container *ngIf="resultados.length !== 0; else resultadosVacio">
     <div
       *ngFor="let gif of resultados"
@@ -21,6 +21,6 @@
   </ng-container>
 
   <ng-template #resultadosVacio>
-      <h2 class="text-center mt-5">No hay imagenes a mostrar...</h2>
+      <h2 class="text-center mt-5">No hay imágenes a mostrar...</h2>
   </ng-template>
 </div>

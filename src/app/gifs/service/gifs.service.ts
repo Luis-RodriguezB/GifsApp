@@ -28,7 +28,7 @@ export class GifsService {
       return;
     }
     query = query.trim().toLowerCase();
-    
+
     if (!this._historial.includes(query)) {
       this._historial.unshift(query);
       this._historial = this._historial.splice(0, 10);
@@ -40,8 +40,8 @@ export class GifsService {
       .set('api_key', this.apiKey)
       .set('limit', '20')
       .set('q', query);
-
-    this.http
+      
+      this.http
       .get<SearchGifsResponse>(`${this.servicioUrl}/search?`, {
         params: params,
       })
@@ -49,16 +49,16 @@ export class GifsService {
         this.resultados = resp.data;
         this.setResultadosLocalStorage();
       });
-  }
+    }
+    
+    deleteGifs(query: string = '') {
+      query = query.trim().toLowerCase();
 
-  deleteGifs(query: string = '') {
-    query = query.trim().toLowerCase();
+      this._historial = this._historial.filter((item) => item !== query);
+      this.setHistoryLocalStorage();
+      this.setResultadosLocalStorage();
+      this.resultados = [];
 
-    this._historial = this._historial.filter((item) => item !== query);
-    this.setHistoryLocalStorage();
-
-    this.resultados = [];
-    this.setResultadosLocalStorage();
     this.searchGifs(this._historial[0]);
   }
 

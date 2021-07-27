@@ -10,6 +10,15 @@ body {
   min-width: 18rem;
 }
 
+.scroll-container {
+  height: 100%;
+  max-height: 78vh;
+  overflow: auto;
+}
+.animate__fadeIn{ 
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 650px) {
   #main-container {
     flex-direction: column;
@@ -24,5 +33,9 @@ body {
     height: 100%;
     max-height: 15vh ;
     overflow-y: auto;
+  }
+
+  .scroll-container {
+    overflow: visible;
   }
 }
